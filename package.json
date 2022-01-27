@@ -7,7 +7,8 @@
   "scripts": {
     "frontend": "cd frontend && npm start",
     "backend": "node ./backend/server.js",
-    "start": "concurrently \"npm run backend\" \"npm run frontend\""
+    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,8 @@
     "express": "^4.17.2",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.1.6"
+    "mongoose": "^6.1.6",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "eslint": "^8.6.0",

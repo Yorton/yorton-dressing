@@ -5,12 +5,20 @@ import productRouter from './routers/productRouter.js';
 import userRouter from './routers/userRouter.js';
 import orderRouter from './routers/orderRouter.js';
 import Axios from 'axios';
+import path from 'path';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+//app.use(express.static('frontend/public'));
+//app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html')));
+
+app.use(express.static('frontend/build'));
+app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')));
+
 
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/yorton-dressing',
 async(err)=>{
