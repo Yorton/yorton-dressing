@@ -1,0 +1,34 @@
+{
+  "name": "yorton-dressing",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yorton/yorton-dressing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yorton/yorton-dressing/issues"
+  },
+  "homepage": "https://github.com/Yorton/yorton-dressing#readme",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.6"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-plugin-react": "^7.28.0",
+    "nodemon": "^2.0.15"
+  }
+}

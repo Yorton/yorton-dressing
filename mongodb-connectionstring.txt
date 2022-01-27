@@ -1,0 +1,1 @@
+'mongodb+srv://yorton:<password>@cluster0.vjqhc.mongodb.net/<dbname>?retryWrites=true&w=majority'
