@@ -25,8 +25,8 @@ app.use(express.static('../frontend/build'));
 app.get('*', function(req, res) {
     //const __dirname = path.resolve();
     console.log(path.resolve());
-    console.log(path.join('..', 'frontend', 'build', 'index.html'));
-    res.sendFile(path.join('..', 'frontend', 'build', 'index.html'));
+    console.log(path.join('frontend', 'build', 'index.html'));
+    res.sendFile(path.join('frontend', 'build', 'index.html'));
 });
 
 
