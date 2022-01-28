@@ -7,8 +7,8 @@
   "scripts": {
     "frontend": "cd frontend && npm start",
     "backend": "node ./backend/server.js",
-    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+    "start": "concurrently \"npm run backend\" \"npm run frontend\""
+
   },
   "repository": {
     "type": "git",
