@@ -14,12 +14,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 
-// app.use(express.static(path.resolve("frontend/build")));
-// app.get('*', (req, res) => res.sendFile(path.resolve("frontend/build", "index.html")));
+app.use(express.static(path.resolve("frontend/build")));
+app.get('*', (req, res) => res.sendFile(path.resolve("frontend/build", "index.html")));
 
-
-app.use(express.static(path.resolve("frontend/public")));
-app.get('*', (req, res) => res.sendFile(path.resolve("frontend/public", "index.html")));
 
 
 
@@ -37,7 +34,7 @@ app.get('*', (req, res) => res.sendFile(path.resolve("frontend/public", "index.h
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/yorton-dressing',
 async(err)=>{
     if(err) throw err;
-    console.log("conncted to db")
+    console.log("conncted to db");
 }
 //Mongoose 6.0 no longer support!!
 // {
@@ -122,7 +119,7 @@ app.use('/api/orders', orderRouter);
 
 
 app.get('/', (req, res) => {
-
+    console.log("Server is ready");
     res.send('Server is ready');
 });
 

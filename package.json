@@ -7,7 +7,7 @@
   "scripts": {
     "frontend": "cd frontend && npm start",
     "backend": "node ./backend/server.js",
-    "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "start": "node ./backend/server.js",
     "build": "cd frontend && npm run build",
     "install-frontend": "cd frontend && npm install",
     "heroku-postbuild": "npm run install-frontend && npm run build"
