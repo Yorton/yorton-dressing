@@ -13,18 +13,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 
-//  // All remaining requests return the React app, so it can handle routing.
-// app.get('*', function(req, res) {
-//     res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
-// });
-
-app.use(express.static('../frontend/build'));
+// app.use(express.static(path.resolve("frontend/build")));
+// app.get('*', (req, res) => res.sendFile(path.resolve("frontend/build", "index.html")));
 
 
-//app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')));
-app.get('*', (req, res) => res.sendFile(path.resolve("frontend/build", "index.html")));
+app.use(express.static(path.resolve("frontend/public")));
+app.get('*', (req, res) => res.sendFile(path.resolve("frontend/public", "index.html")));
 
 
 
