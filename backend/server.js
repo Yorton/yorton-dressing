@@ -23,7 +23,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('../frontend/build'));
 
 app.get('*', function(req, res) {
-    res.sendFile('../frontend/build/index.html');
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
 });
 
 
