@@ -13,6 +13,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+// Priority serve any static files.
+app.use(express.static(path.resolve("frontend/build")));
+
 
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/yorton-dressing',
 async(err)=>{
@@ -111,7 +114,7 @@ app.use((err, req, res, next) => {//catch expressAsyncHandler error happened
 });
 
 
-app.use(express.static(path.resolve("frontend/build")));
+
 app.get('*', (req, res) => res.sendFile(path.resolve("frontend/build", "index.html")));
 
 // app.get('*', function(req, res) {
