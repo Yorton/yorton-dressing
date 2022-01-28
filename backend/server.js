@@ -24,11 +24,11 @@ app.use(express.static('../frontend/build'));
 
 app.get('*', function(req, res) {
     
-    const __dirname = path.resolve();
+    //const __dirname = path.resolve();
 
-    console.log(__dirname);
+    //console.log(__dirname);
 
-    res.sendFile('frontend/build/index.html', {root: __dirname });
+    res.sendFile('frontend/build/index.html');
 
 });
 
