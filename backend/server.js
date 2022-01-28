@@ -23,9 +23,10 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('../frontend/build'));
 
 app.get('*', function(req, res) {
-    const __dirname = path.resolve();
-    console.log(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
-    res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
+    //const __dirname = path.resolve();
+    console.log(path.resolve());
+    console.log(path.join('..', 'frontend', 'build', 'index.html'));
+    res.sendFile(path.join('..', 'frontend', 'build', 'index.html'));
 });
 
 
