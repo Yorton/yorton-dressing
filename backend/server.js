@@ -15,6 +15,11 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 
+ // All remaining requests return the React app, so it can handle routing.
+app.get('*', function(req, res) {
+    res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
+});
+
 //app.use(express.static('frontend/public'));
 //app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html')));
 
