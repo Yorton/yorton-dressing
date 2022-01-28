@@ -14,23 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 
-app.use(express.static(path.resolve("frontend/build")));
-app.get('*', (req, res) => res.sendFile(path.resolve("frontend/build", "index.html")));
-
-
-
-
-// app.get('*', function(req, res) {
-    
-//     const __dirname = path.resolve();
-
-//     console.log(`${__dirname}/frontend/build/index.html`);
-
-//     res.sendFile(`${__dirname}/frontend/build/index.html`);
-
-// });
-
-
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/yorton-dressing',
 async(err)=>{
     if(err) throw err;
@@ -126,6 +109,21 @@ app.get('/', (req, res) => {
 app.use((err, req, res, next) => {//catch expressAsyncHandler error happened
     res.status(500).send({message: err.message});
 });
+
+
+app.use(express.static(path.resolve("frontend/build")));
+app.get('*', (req, res) => res.sendFile(path.resolve("frontend/build", "index.html")));
+
+// app.get('*', function(req, res) {
+    
+//     const __dirname = path.resolve();
+
+//     console.log(`${__dirname}/frontend/build/index.html`);
+
+//     res.sendFile(`${__dirname}/frontend/build/index.html`);
+
+// });
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, ()=>{
