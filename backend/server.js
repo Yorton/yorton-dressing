@@ -13,8 +13,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// Priority serve any static files.
-app.use(express.static(path.resolve("frontend/build")));
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.resolve("frontend/build")));
+}
+
 
 
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/yorton-dressing',
@@ -114,19 +116,10 @@ app.use((err, req, res, next) => {//catch expressAsyncHandler error happened
 });
 
 
-
-app.get('*', (req, res) => res.sendFile(path.resolve("frontend/build", "index.html")));
-
-// app.get('*', function(req, res) {
+if (process.env.NODE_ENV === 'production'){
     
-//     const __dirname = path.resolve();
-
-//     console.log(`${__dirname}/frontend/build/index.html`);
-
-//     res.sendFile(`${__dirname}/frontend/build/index.html`);
-
-// });
-
+    app.get('*', (req, res) => res.sendFile(path.resolve("frontend/build", "index.html")));
+}
 
 const port = process.env.PORT || 5000;
 app.listen(port, ()=>{
