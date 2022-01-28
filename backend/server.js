@@ -22,15 +22,15 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(express.static('../frontend/build'));
 
-app.get('*', function(req, res) {
+// app.get('*', function(req, res) {
     
-    const __dirname = path.resolve();
+//     const __dirname = path.resolve();
 
-    console.log(`${__dirname}/frontend/build/index.html`);
+//     console.log(`${__dirname}/frontend/build/index.html`);
 
-    res.sendFile(`${__dirname}/frontend/build/index.html`);
+//     res.sendFile(`${__dirname}/frontend/build/index.html`);
 
-});
+// });
 
 
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/yorton-dressing',
