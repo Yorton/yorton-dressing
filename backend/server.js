@@ -28,7 +28,7 @@ app.get('*', function(req, res) {
 
     //console.log(__dirname);
 
-    res.sendFile('frontend/build/index.html');
+    res.sendFile(`${__dirname}/frontend/build/index.html`);
 
 });
 
