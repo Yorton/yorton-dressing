@@ -22,6 +22,10 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(express.static('../frontend/build'));
 
+app.get('*', function(req, res) {
+    res.sendFile('../frontend/build/index.html');
+});
+
 
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/yorton-dressing',
 async(err)=>{
