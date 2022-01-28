@@ -22,6 +22,8 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(express.static('../frontend/build'));
 
+app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')));
+
 // app.get('*', function(req, res) {
     
 //     const __dirname = path.resolve();
