@@ -226,7 +226,7 @@ export default function OrderScreen() {
                                                         //<LinepayButton amount={order.totalPrice}
                                                         //onSuccess={successPaymentHandler}></LinepayButton>
                                                     }
-                                                    <button type='button' onClick={successPaymentHandler}>Pay</button>
+                                                    <button type='button' className='primary block' onClick={successPaymentHandler}>Pay</button>
                                                 </>
                                             )
                                         }
